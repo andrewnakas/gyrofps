@@ -35,10 +35,10 @@ function Awake() {
         gyro = Input.gyro;
         gyro.enabled = true;
      
-        #if UNITY_IPHONE
+       
             camParent.transform.eulerAngles = Vector3(90, 0, 0);
             quatMult = Quaternion(0,0,1,0);
-        #endif
+     
      
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
     } else {
@@ -53,9 +53,9 @@ function Start() {
 function Update() {
 //Debug.Log(transform.eulerAngles.y + " " + transform.localEulerAngles.y);
     if (gyroBool) {
-        #if UNITY_IPHONE
+      
             quatMap = gyro.attitude;
-        #endif
+    
      
         
         transform.localRotation = quatMap * quatMult;
